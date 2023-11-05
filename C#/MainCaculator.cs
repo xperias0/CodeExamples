@@ -57,13 +57,11 @@ public class MainCaculator : MonoBehaviour
         
         float originLatRad = originLatitude * DegreesToRadians;
         float originLonRad = originLongitude * DegreesToRadians;
-       // Calculate the X, Y, Z coordinates in meters
+       
        float x = EarthRadius * Mathf.Cos(latRad) * Mathf.Cos(lonRad) - EarthRadius * Mathf.Cos(originLatRad) * Mathf.Cos(originLonRad);
        float y = EarthRadius * Mathf.Cos(latRad) * Mathf.Sin(lonRad) - EarthRadius * Mathf.Cos(originLatRad) * Mathf.Sin(originLonRad);
        float z = EarthRadius * Mathf.Sin(latRad) - EarthRadius * Mathf.Sin(originLatRad);
-
-        
-        // Create a Vector3 for the world position
+       
         Vector3 worldPosition = new Vector3(x, y, z);
 
         return worldPosition;
